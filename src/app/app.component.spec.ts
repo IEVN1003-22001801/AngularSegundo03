@@ -1,10 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { DistanciaComponent } from './formularios/distancia/distancia.component';
+import { ZodiacoComponent } from './formularios/zodiaco/zodiaco.component';
+import { AxBComponent } from './formularios/ax-b/ax-b.component';
+import { Distancia } from './formularios/distancia/distancia';
+
+
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      imports: [AppComponent, DistanciaComponent, Distancia, ZodiacoComponent, AxBComponent],
     }).compileComponents();
   });
 

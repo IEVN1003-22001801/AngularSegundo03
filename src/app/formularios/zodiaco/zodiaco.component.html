@@ -1,0 +1,116 @@
+<div class="container my-5">
+  <div class="card shadow-lg border-0 rounded-3">
+    <div class="row g-0">
+      
+      <!-- Columna Izquierda: Formulario de Entrada -->
+      <div class="col-md-6 p-4 bg-light rounded-start-3">
+        <form [formGroup]="zodiacoForm" (ngSubmit)="onSubmit()">
+          
+          <h2 class="mb-4 text-center text-dark">Datos Personales</h2>
+
+          <!-- Nombre -->
+          <div class="row mb-3 align-items-center campo">
+            <label for="nombre" class="col-sm-4 col-form-label fw-bold">Nombre</label>
+            <div class="col-sm-8">
+              <input id="nombre" type="text" formControlName="nombre" class="form-control form-control-sm text-end border-dark" placeholder="text field">
+              <!-- Validación simple -->
+              <div *ngIf="zodiacoForm.get('nombre')?.invalid && zodiacoForm.get('nombre')?.touched" class="text-danger small mt-1">Campo requerido.</div>
+            </div>
+          </div>
+
+          <!-- Apaterno -->
+          <div class="row mb-3 align-items-center campo">
+            <label for="apaterno" class="col-sm-4 col-form-label fw-bold">Apaterno</label>
+            <div class="col-sm-8">
+              <input id="apaterno" type="text" formControlName="apaterno" class="form-control form-control-sm text-end border-dark" placeholder="text field">
+              <div *ngIf="zodiacoForm.get('apaterno')?.invalid && zodiacoForm.get('apaterno')?.touched" class="text-danger small mt-1">Campo requerido.</div>
+            </div>
+          </div>
+
+          <!-- Amaterno -->
+          <div class="row mb-3 align-items-center campo">
+            <label for="amaterno" class="col-sm-4 col-form-label fw-bold">Amaterno</label>
+            <div class="col-sm-8">
+              <input id="amaterno" type="text" formControlName="amaterno" class="form-control form-control-sm text-end border-dark" placeholder="text field">
+              <div *ngIf="zodiacoForm.get('amaterno')?.invalid && zodiacoForm.get('amaterno')?.touched" class="text-danger small mt-1">Campo requerido.</div>
+            </div>
+          </div>
+
+          <hr class="my-4 border-dark">
+
+          <!-- Fecha de Nacimiento -->
+          <div class="seccion-fecha">
+            <h3 class="mb-3 text-center">Fecha de nacimiento</h3>
+            <div class="row fecha-campos text-center">
+              
+              <div class="col-4">
+                <label for="dia" class="form-label small fw-bold">Día</label>
+                <input id="dia" type="number" formControlName="dia" class="form-control form-control-sm text-center border-dark" placeholder="Día" min="1" max="31">
+              </div>
+
+              <div class="col-4">
+                <label for="mes" class="form-label small fw-bold">Mes</label>
+                <input id="mes" type="number" formControlName="mes" class="form-control form-control-sm text-center border-dark" placeholder="Mes" min="1" max="12">
+              </div>
+
+              <div class="col-4">
+                <label for="anio" class="form-label small fw-bold">Año</label>
+                <input id="anio" type="number" formControlName="anio" class="form-control form-control-sm text-center border-dark" placeholder="Año" min="1900" [max]="anioMaximo">
+              </div>
+            </div>
+             <!-- Mensaje de error general para la fecha -->
+            <div *ngIf="zodiacoForm.get('anio')?.invalid && zodiacoForm.get('anio')?.touched" class="text-danger small text-center mt-2">
+              Verifica Día, Mes y Año (máx: {{ anioMaximo }}).
+            </div>
+          </div>
+
+          <hr class="my-4 border-dark">
+
+          <!-- Sexo (Radio Buttons) -->
+          <div class="seccion-sexo">
+            <h3 class="mb-3 text-center">sexo</h3>
+            <div class="opciones-sexo d-flex justify-content-around">
+                
+              <div class="form-check">
+                <input class="form-check-input" type="radio" formControlName="sexo" id="sexoMasculino" value="Masculino">
+                <label class="form-check-label" for="sexoMasculino">
+                  Masculino
+                </label>
+              </div>
+                
+              <div class="form-check">
+                <input class="form-check-input" type="radio" formControlName="sexo" id="sexoFemenino" value="Femenino">
+                <label class="form-check-label" for="sexoFemenino">
+                  Femenino
+                </label>
+              </div>
+              
+            </div>
+          </div>
+
+          <!-- Botón Imprimir -->
+          <button type="submit" class="btn btn-dark btn-lg w-100 mt-5 shadow" [disabled]="zodiacoForm.invalid">imprimir</button>
+
+        </form>
+      </div>
+
+      <!-- Columna Derecha: Resultado -->
+      <div class="col-md-6 p-4 d-flex flex-column align-items-center justify-content-center text-center bg-white rounded-end-3" *ngIf="resultado.mostrar">
+        
+        <h1 class="text-success display-6 mb-2">Hola {{ resultado.nombreCompleto }}</h1>
+        
+        <p class="fs-4 text-secondary mb-4">Tienes {{ resultado.edad }} años</p>
+
+        <p class="text-info fs-5 mb-3 text-uppercase border-bottom border-info pb-1">tu signo zodiacal</p>
+        
+        <div class="signo-info">
+          <!-- Imagen del signo. Se recomienda que el fondo del círculo sea un color fijo. -->
+          <img [src]="resultado.rutaImagen" [alt]="'Imagen del signo ' + resultado.signo" class="img-fluid rounded-circle border border-dark p-2 mb-3 shadow" style="width: 150px; height: 150px; object-fit: contain; background-color: #ADD8E6;">
+          <p class="signo-nombre fw-bold fs-3 text-danger">Es {{ resultado.signo }}</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<!--<div>
+    <h1>Multiplica 2 números</h1>
+    <form [formGroup]="formulario">
+        <div>
+            <label for="">Primer Numero:</label>
+            <input formControlName="numero1" type="number">
+        </div>
+        <br>
+        <div>
+            <label for="">Segundo número:</label>
+            <input formControlName="numero2" type="number">
+        </div>
+        <br>
+        <button (click)="multNumeros()" type="sunmit">Multiplicar</button>
+
+        <h1>Resultado: {{resultado}}</h1>
+    </form>
+</div>-->
+<div style="text-align: center; margin-top: 20px;">
+  <h2>Calcular distancia entre dos puntos</h2>
+
+  <div style="margin-bottom: 10px;">
+    <label for="x1">x1:</label>
+    <input type="number" id="x1" [(ngModel)]="x1">
+  </div>
+
+  <div style="margin-bottom: 10px;">
+    <label for="y1">y1:</label>
+    <input type="number" id="y1" [(ngModel)]="y1">
+  </div>
+
+  <div style="margin-bottom: 10px;">
+    <label for="x2">x2:</label>
+    <input type="number" id="x2" [(ngModel)]="x2">
+  </div>
+
+  <div style="margin-bottom: 10px;">
+    <label for="y2">y2:</label>
+    <input type="number" id="y2" [(ngModel)]="y2">
+  </div>
+
+  <button (click)="calcular()">CALCULAR</button>
+
+  <p *ngIf="resultado !== null">
+    La distancia entre los dos puntos es:
+    <strong>{{ resultado | number:'1.2-2' }}</strong>
+  </p>
+</div>
+
+

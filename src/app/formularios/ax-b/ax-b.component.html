@@ -1,0 +1,15 @@
+<div class="container">
+  <h2>Multiplicación usando sumas (POO)</h2>
+
+  <label for="a">Número A:</label>
+  <input type="number" id="a" [(ngModel)]="a">
+
+  <label for="b">Número B:</label>
+  <input type="number" id="b" [(ngModel)]="b">
+
+  <button (click)="calcularMultiplicacion()">Calcular</button>
+
+  <div *ngIf="resultado !== null">
+    <h3>Resultado: {{ resultado }}</h3>
+  </div>
+</div>
