@@ -4,13 +4,14 @@ import { DistanciaComponent } from './formularios/distancia/distancia.component'
 import { ZodiacoComponent } from './formularios/zodiaco/zodiaco.component';
 import { AxBComponent } from './formularios/ax-b/ax-b.component';
 import { Distancia } from './formularios/distancia/distancia';
+import { TempComponent } from './tem/temp/temp.component';
 
 
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent, DistanciaComponent, Distancia, ZodiacoComponent, AxBComponent],
+      imports: [AppComponent, DistanciaComponent, Distancia, ZodiacoComponent, AxBComponent, TempComponent],
     }).compileComponents();
   });
 
