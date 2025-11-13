@@ -1,15 +1,40 @@
-<div class="container">
-  <h2>Multiplicación usando sumas (POO)</h2>
+<div class="container bg-gray-50 p-6 rounded-xl shadow-lg max-w-lg mx-auto mt-10">
+  <h2 class="text-3xl font-bold mb-6 text-indigo-700 text-center">Multiplicación usando sumas (POO)</h2>
 
-  <label for="a">Número A:</label>
-  <input type="number" id="a" [(ngModel)]="a">
+  <div class="mb-4">
+    <label for="a" class="block text-sm font-medium text-gray-700 mb-1">Número A:</label>
+    <!-- Binding bidireccional con ngModel para el factor A -->
+    <input 
+      type="number" 
+      id="a" 
+      [(ngModel)]="a"
+      class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+      placeholder="Introduce el factor A"
+    >
+  </div>
 
-  <label for="b">Número B:</label>
-  <input type="number" id="b" [(ngModel)]="b">
+  <div class="mb-6">
+    <label for="b" class="block text-sm font-medium text-gray-700 mb-1">Número B:</label>
+    <!-- Binding bidireccional con ngModel para el factor B -->
+    <input 
+      type="number" 
+      id="b" 
+      [(ngModel)]="b"
+      class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+      placeholder="Introduce el factor B"
+    >
+  </div>
 
-  <button (click)="calcularMultiplicacion()">Calcular</button>
+  <button 
+    (click)="calcularMultiplicacion()"
+    class="w-full py-3 px-4 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition duration-200 ease-in-out transform hover:scale-[1.01]"
+  >
+    Calcular (AxB)
+  </button>
 
-  <div *ngIf="resultado !== null">
-    <h3>Resultado: {{ resultado }}</h3>
+  <!-- Muestra el resultado si no es nulo -->
+  <div *ngIf="resultado !== null" class="mt-6 p-4 bg-green-100 border-l-4 border-green-500 rounded-lg text-center">
+    <h3 class="text-xl font-semibold text-green-800">Resultado:</h3>
+    <p class="text-4xl font-extrabold text-green-900 mt-1">{{ resultado }}</p>
   </div>
 </div>
