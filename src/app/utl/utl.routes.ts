@@ -5,24 +5,24 @@ export default[
 
     {
         path:'listaalumnos',
-        loadComponent:()=>import('./alumnos/alumnos.component').then(c=>c.AlumnosComponent)
+        loadComponent:()=>import('./alumnos/alumnos.component').then(u=>u.AlumnosComponent)
     },
 
     {
         path:'agregar',
-        loadComponent:()=>import('./agregar/agregar.component').then(c=>c.AgregarComponent)
+        loadComponent:()=>import('./agregar/agregar.component').then(u=>u.AgregarComponent)
     },
 
      
     {
-        path:'editar',
-        loadComponent:()=>import('./editar/editar.component').then(c=>c.EditarComponent)
+        path:'editar/:matricula',
+        loadComponent:()=>import('./editar/editar.component').then(u=>u.EditarComponent)
     },
 
 
     {
-        path:'eliminar',
-        loadComponent:()=>import('./eliminar/eliminar.component').then(c=>c.EliminarComponent)
+        path:'eliminar/:matricula',
+        loadComponent:()=>import('./eliminar/eliminar.component').then(u=>u.EliminarComponent)
     }
 
 
